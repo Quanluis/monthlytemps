@@ -9,47 +9,84 @@ using namespace std;
 class Temp {
     private: 
         int list, average,
-            belowAvg, aboveAvg;
+            numberOftemps,
+            belowAvg, aboveAvg,
+            count;
     public: 
     //Constuctor 
     Temp(){
         cout << "Running Temp Program..." << endl;
     }
     //Temp function prototypes
-
+    int start();
+    void findAvg();
+    void belowList();
 };
 
 //Temp program function implementation
 
-int main(){
+void Temp::belowList(){
 
-    const int array = 40;
+    int count;
+    cout << "Average is " << count;
+
+}
+
+void Temp::findAvg(){
+
+    int count;
+
+    cout << "Average Temperature is: " << count << endl;
+
+}
+
+    int Temp::start(){
+
+    const int array = 30;
     int temps[array];
     int count = 0;
     int numberOfTemps;
-
-    Temp m;
+    int avg;
 
     fstream inputfile;
 
     inputfile.open("NovTemps.txt");
 
     if(!inputfile){
-        cout << "File not found" << endl;;
+        cout << "File not found..." << endl;;
     } else {
-        cout << "File found" << endl;
+        cout << "File found..." << endl;
         while(!inputfile.eof()){
         inputfile >> temps[count];
         count++;
         }
         numberOfTemps = count;
 
-        cout << "Temps" << endl;
+        cout << "Monthly Temperatures..." << endl;
+
+         for(count = 0; count < numberOfTemps; count++){
+            cout << " " << temps[count];
+       }
 
         for(count = 0; count < numberOfTemps; count++){
-            cout << " " << temps[count];
+            count = count + temps[count];
         }
-    }
 
+    }
+        cout << endl;
+
+        return count;
+}   
+
+int main(){
+
+    Temp m;
+
+    m.start();
+
+    m.findAvg();
+
+    m.belowList();
+    
     return 0;
 }
